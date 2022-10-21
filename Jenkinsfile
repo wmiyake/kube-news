@@ -8,8 +8,9 @@ pipeline {
                 }
             }
         }
+    }
         stage ('Push Docker Image') {
-            steps{
+            steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
                     dockerapp.push('latest')
@@ -17,5 +18,5 @@ pipeline {
                 }
             }   
         }
-    }
+
 }
